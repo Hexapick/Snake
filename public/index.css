@@ -1,0 +1,21 @@
+#board{
+    background-color: black;
+    width: 80vh;
+    height: 80vh;
+    display: grid;
+    grid-template-columns:repeat(20,1fr);
+    border: 1px solid black;
+
+}
+.element{
+    width: 4vh;
+    height: 4vh;
+}
+.food{
+    border-radius: 50%;
+    background-color: rgb(192, 46, 46);
+}
+.test{
+    border-radius: 10px;
+    background: green;
+}
