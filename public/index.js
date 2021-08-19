@@ -73,7 +73,11 @@ function Refresh() {
     brd[FruitCords[1]][FruitCords[0]] = 2;
   }
   snake.forEach((cords, index) => {
-    brd[cords[1]][cords[0]] = 1;
+    if (index == 0) {
+      brd[cords[1]][cords[0]] = 4;
+    }else{
+      brd[cords[1]][cords[0]] = 1;
+    }
   });
 
   brd.forEach((arr, i) => {
@@ -86,7 +90,9 @@ function Refresh() {
         element.className = "element test";
       } else if (arr === 2) {
         element.className = "element food";
-      } else {
+      } else if(arr === 4){
+        element.className = "element head";
+      }else{
         element.className = "element";
       }
       htmlArr.appendChild(element);
@@ -170,10 +176,12 @@ function Movement() {
       break;
   }
 
-  if (arraysEqual(snake[0], FruitCords)) {
-    console.log(23);
-    FruitEaten = true;
-  }
+  snake.forEach(obj=>{
+    if (arraysEqual(obj, FruitCords)) {
+      console.log(23);
+      FruitEaten = true;
+    }
+  })
 }
 setInterval(() => {
   Movement();
